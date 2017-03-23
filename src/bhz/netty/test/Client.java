@@ -1,5 +1,7 @@
 package bhz.netty.test;
 
+import java.util.Scanner;
+
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
@@ -13,6 +15,8 @@ public class Client {
 
 	public static void main(String[] args) throws Exception {
 		
+		Scanner sc = new Scanner(System.in);
+		
 		EventLoopGroup workgroup = new NioEventLoopGroup();
 		Bootstrap b = new Bootstrap();
 		b.group(workgroup)
@@ -25,10 +29,10 @@ public class Client {
 		});
 		
 		ChannelFuture cf1 = b.connect("127.0.0.1", 8765).sync();
-		
-		//buf
-		cf1.channel().writeAndFlush(Unpooled.copiedBuffer("777".getBytes()));
-		
+		String msg ="客户端" + sc.nextLine();
+		if(msg != null){
+			cf1.channel().writeAndFlush(Unpooled.copiedBuffer(msg.getBytes()));
+		}	
 		cf1.channel().closeFuture().sync();
 		workgroup.shutdownGracefully();
 		

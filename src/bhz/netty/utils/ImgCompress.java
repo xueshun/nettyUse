@@ -67,7 +67,7 @@ public class ImgCompress {
 	 */  
 	public void resize(int w, int h) throws IOException {  
 		// SCALE_SMOOTH 的缩略算法 生成缩略图片的平滑度的 优先级比速度高 生成的图片质量比较好 但速度慢  
-		BufferedImage image = new BufferedImage(w, h,BufferedImage.TYPE_3BYTE_BGR );   
+		BufferedImage image = new BufferedImage(w, h,BufferedImage.TYPE_BYTE_GRAY );   
 		image.getGraphics().drawImage(img, 0, 0, w, h, null); // 绘制缩小后的图  
 		String writPath = System.getProperty("user.dir") + File.separatorChar + "receive" + File.separatorChar + "006.jpg";
 		File destFile = new File(writPath);  

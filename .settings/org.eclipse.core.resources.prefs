@@ -1,3 +1,5 @@
 eclipse.preferences.version=1
 encoding//src/bhz/netty/helloworld/Server.java=UTF-8
 encoding//src/bhz/netty/helloworld/ServerHandler.java=UTF-8
+encoding//src/bhz/utils/HttpCaller.java=UTF-8
+encoding//src/bhz/utils/HttpCallerUtils.java=UTF-8
